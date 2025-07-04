@@ -57,7 +57,7 @@ body {
     line-height: 1.6;
     background-color: var(--background);
     color: var(--text);
-    
+    overflow-x: hidden;
 }
 
 /* Typography */
@@ -92,16 +92,12 @@ img {
     height: auto;
 }
 
-
 /* Layout */
-/* Layout */
-
 .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
-    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .section-title {
@@ -609,7 +605,7 @@ img {
 
 /* ********************************** Articles Section ****************************************** */
 .articles {
-    padding: 5rem 1rem;
+    padding: 5rem 1.5rem;
     background-color: var(--surface);
 }
 
