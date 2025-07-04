@@ -92,13 +92,30 @@ img {
     height: auto;
 }
 
+
+
+
+/* Add this to your existing media query for mobile devices */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem; /* Reduce padding on smaller screens */
+        width: 100%; /* Ensure full width */
+    }
+    
+    /* You might also want to add this for very small screens */
+    @media (max-width: 480px) {
+        .container {
+            padding: 0 0.8rem; /* Even smaller padding on very small screens */
+        }
+    }
+}
 /* Layout */
+    
 .container {
-    max-width: 1200px;
     width: 100%;
     max-width: 1200px;
-    padding: 0 1.5rem;
-}
+    margin: 0 auto;
+    padding: 0 1.5rem;}
 
 .section-title {
     font-size: 2rem;
