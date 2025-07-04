@@ -115,10 +115,6 @@ img {
         padding: 0 0.75rem; /* Even smaller padding for phones */
     }
 }
-html, body {
-    width: 100%;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
 
 .container {
     overflow-x: hidden; /* Extra protection */
