@@ -644,6 +644,8 @@ img {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+    justify-items: center; /* Add this line to center the cards */
+
 }
 
 .article-card {
@@ -652,6 +654,8 @@ img {
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
+    width: 100%; /* Add this to ensure cards take full width of their container */
+    max-width: 350px; /* Add a max-width to prevent cards from becoming too wide */
 }
 
 .article-card:hover {
