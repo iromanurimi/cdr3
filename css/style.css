@@ -509,10 +509,14 @@ img {
 
 /* ********************************** Features Section ****************************************** */
 .features {
-    padding: 5rem 1.5rem;
+/*     padding: 5rem 1.5rem;
     background-color: var(--background);
-/*     position: relative; */
+    position: relative;  */
+
+    padding: 3rem 2rem;
+    max-width: 1200px;
     margin: 0 auto;
+    
 }
 
 .features::before {
@@ -530,12 +534,16 @@ img {
 }
 
 .features-grid {
-    display: grid;
+/*     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
-    position: relative;
-    z-index: 1;
+    position: relative; 
+    z-index: 1; */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
 .feature-link {
@@ -544,7 +552,7 @@ img {
 }
 
 .feature-card {
-    background-color: var(--surface);
+/*     background-color: var(--surface);
     border-radius: 15px;
     padding: 2rem;
     box-shadow: var(--shadow-sm);
@@ -554,8 +562,16 @@ img {
     flex-direction: column;
     border: 1px solid var(--border);
     position: relative;
-    overflow: hidden;
-}
+    overflow: hidden;*/
+
+
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    } 
+    
 
 .feature-card:hover {
     transform: translateY(-10px);
