@@ -608,6 +608,13 @@ img {
     margin-top: auto;
 }
 
+@media (max-width: 600px) {
+  .features {
+    padding: 3rem 1rem;
+  }
+}
+
+
 /* ********************************** Articles Section ****************************************** */
 .articles {
     padding: 5rem 1.5rem;
