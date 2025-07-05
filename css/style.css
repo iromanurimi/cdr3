@@ -98,7 +98,7 @@ img {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
-    background-color: blue;
+    
 }
 
 .section-title {
@@ -510,10 +510,11 @@ img {
 
 /* ********************************** Features Section ****************************************** */
 .features {
+  width: 100%;
   padding: 5rem 1.5rem;
   background-color: var(--background); 
   position: relative; 
-  background-color: green;  
+  background-color: red; 
 }
 
 .features::before {
