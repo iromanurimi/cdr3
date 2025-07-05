@@ -511,7 +511,8 @@ img {
 .features {
     padding: 5rem 1.5rem;
     background-color: var(--background);
-    position: relative;
+/*     position: relative; */
+    margin: 0 auto;
 }
 
 .features::before {
