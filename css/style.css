@@ -518,7 +518,7 @@ img {
   padding: 5rem 1.5rem;
   background-color: var(--background); 
   position: relative;
-  border: 4px dashed yellow;
+
 }
 
 }
@@ -542,8 +542,9 @@ img {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
-    position: relative; 
+    position: relative;
     z-index: 1;
+    justify-items: center;
 }
 
 .feature-link {
@@ -563,6 +564,8 @@ img {
     border: 1px solid var(--border);
     position: relative;
     overflow: hidden;
+    width: 100%; /* Add this to ensure cards take full width of their container */
+    max-width: 350px; /* Add a max-width to prevent cards from becoming too wide */
 
     } 
     
@@ -618,6 +621,17 @@ img {
   .features {
     padding: 3rem 1rem;
   }
+}
+
+@media (max-width: 480px) {
+    .features-grid, .articles-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .feature-card, .article-card {
+        max-width: 100%;
+    }
 }
 
 
