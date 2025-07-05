@@ -517,8 +517,10 @@ img {
   width: 100%;
   padding: 5rem 1.5rem;
   background-color: var(--background); 
-  position: relative; 
-  background-color: red; 
+  position: relative;
+  border: 4px dashed yellow;
+}
+
 }
 
 .features::before {
