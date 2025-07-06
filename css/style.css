@@ -615,22 +615,6 @@ img {
     margin-top: auto;
 }
 
-@media (max-width: 600px) {
-  .features {
-    padding: 3rem 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-    .features-grid, .articles-grid {
-        grid-template-columns: 1fr;
-        padding: 0 1rem;
-    }
-    
-    .feature-card, .article-card {
-        max-width: 100%;
-    }
-}
 
 
 /* ********************************** Articles Section ****************************************** */
