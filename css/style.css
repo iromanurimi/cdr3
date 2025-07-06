@@ -514,7 +514,7 @@ img {
 
 /* ********************************** Features Section ****************************************** */
 .features {
-  padding: 5rem 1.5rem;
+  padding: 3rem 2rem;
   background-color: var(--background); 
   position: relative;
 
@@ -616,7 +616,7 @@ img {
 
 /* ********************************** Articles Section ****************************************** */
 .articles {
-    padding: 5rem 1.5rem;
+    padding: 3rem 2rem;
     background-color: var(--surface);
 }
 
