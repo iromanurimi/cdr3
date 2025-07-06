@@ -294,13 +294,24 @@ img {
 
 /* Bottom Navigation Inside Mobile Menu */
 .bottom-nav {
-    display: grid;
+  /*  display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     margin-top: 2rem;
     padding-top: 1rem;
     border-top: 1px solid var(--border);
-}
+    */
+    display: grid;
+    grid-template-colums: repeat(3,1fr);
+    gap: 10px;
+    background: transparent;
+    box-shadow:none;
+    margin-top:20px;
+    padding:10px 0;
+    border-top:1px solid #eee;
+    width:100%;
+    
+    }
 
 .nav-item {
     display: flex;
