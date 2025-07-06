@@ -91,15 +91,6 @@ img {
     max-width: 100%;
     height: auto;
 }
-
-/* Layout */
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
     
 }
 
@@ -512,7 +503,6 @@ img {
 
 /* ********************************** Features Section ****************************************** */
 .features {
-  width: 100%;
   padding: 5rem 1.5rem;
   background-color: var(--background); 
   position: relative;
@@ -542,7 +532,6 @@ img {
     margin-top: 3rem;
     position: relative;
     z-index: 1;
-    justify-items: center;
 }
 
 .feature-link {
@@ -562,9 +551,6 @@ img {
     border: 1px solid var(--border);
     position: relative;
     overflow: hidden;
-    width: 100%; /* Add this to ensure cards take full width of their container */
-    max-width: 350px; /* Add a max-width to prevent cards from becoming too wide */
-
     } 
     
 
