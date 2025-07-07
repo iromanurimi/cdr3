@@ -15,6 +15,447 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/tracker.css">
+
+
+<style>
+
+.fa-spinner {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+        /* Baby Tracker Styles */
+        .baby-tracker-container {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px auto;
+            max-width: 900px;
+            box-shadow: 0 10px 30px rgba(162, 215, 216, 0.2);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .baby-tracker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f5f5f5;
+        }
+
+        .baby-tracker-header h2 {
+            color: #5E5E5E;
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .baby-tracker-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-share, .btn-voice {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-share {
+            background-color: #A2D7D8;
+            color: white;
+        }
+
+        .btn-voice {
+            background-color: #FFD1DC;
+            color: #5E5E5E;
+        }
+
+        .btn-share:hover {
+            background-color: #8bc5c6;
+            transform: translateY(-2px);
+        }
+
+        .btn-voice:hover {
+            background-color: #ffc0d0;
+            transform: translateY(-2px);
+        }
+
+        .tracker-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .tracker-card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tracker-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(162, 215, 216, 0.3);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .due-date-card .card-icon {
+            background-color: rgba(255, 154, 162, 0.2);
+            color: #FF9AA2;
+        }
+
+        .progress-card .card-icon {
+            background-color: rgba(162, 215, 216, 0.2);
+            color: #A2D7D8;
+        }
+
+        .baby-dev-card .card-icon {
+            background-color: rgba(255, 214, 220, 0.3);
+            color: #FFD1DC;
+        }
+
+        .health-tips-card .card-icon {
+            background-color: rgba(255, 154, 162, 0.2);
+            color: #FF9AA2;
+        }
+
+        .card-content h3 {
+            color: #5E5E5E;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .due-date {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #FF9AA2;
+            margin-bottom: 10px;
+        }
+
+        .countdown {
+            font-size: 0.95rem;
+            color: #777;
+            font-weight: 500;
+        }
+
+        .week-display {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #A2D7D8;
+            margin-bottom: 15px;
+        }
+
+        .progress-container {
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF9AA2, #FFD1DC);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-percent {
+            font-size: 0.9rem;
+            color: #777;
+            text-align: right;
+        }
+
+        .trimester-info {
+            font-size: 0.9rem;
+            color: #A2D7D8;
+            font-weight: 500;
+            padding: 5px 10px;
+            background-color: rgba(162, 215, 216, 0.1);
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .baby-size {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .size-comparison {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FF9AA2;
+            flex: 1;
+        }
+
+        .size-image img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 50%;
+            background-color: rgba(255, 214, 220, 0.3);
+            padding: 10px;
+        }
+
+        .baby-milestones ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .baby-milestones li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .baby-milestones li:before {
+            content: "•";
+            color: #FF9AA2;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 5px;
+            top: 2px;
+        }
+
+        .health-tip {
+            background-color: rgba(162, 215, 216, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .reminder {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #FF9AA2;
+            font-weight: 500;
+            padding: 10px;
+            background-color: rgba(255, 154, 162, 0.1);
+            border-radius: 10px;
+        }
+
+        .visual-progress-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #f5f5f5;
+        }
+
+        /* Hide pregnancy timeline on mobile devices (screen width less than 768px) */
+@media (max-width: 767px) {
+    .pregnancy-timeline {
+        display: none !important;
+    }
+}
+
+        .circular-progress {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.5s ease;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #FF9AA2;
+        }
+
+        .pregnancy-timeline {
+            flex: 1;
+            height: 8px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            top: -10px;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .marker-dot {
+            width: 20px;
+            height: 20px;
+            background-color: #FF9AA2;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .marker-label {
+            margin-top: 5px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #777;
+            white-space: nowrap;
+        }
+
+        /* Animation for heartbeat effect */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .baby-dev-card:hover .card-icon {
+            animation: heartbeat 1s infinite;
+        }
+
+        /* Share menu styles */
+        .share-menu {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 300px;
+            width: 90%;
+        }
+
+        .share-menu p {
+            margin-top: 0;
+            font-weight: bold;
+            color: #5E5E5E;
+        }
+
+        .share-menu a, .share-menu button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .share-menu a {
+            background-color: #A2D7D8;
+            color: white;
+        }
+
+        .share-menu a:hover {
+            background-color: #8bc5c6;
+        }
+
+        .share-menu button.copy-link {
+            background-color: #FF9AA2;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .share-menu button.cancel-share {
+            background-color: #f0f0f0;
+            color: #5E5E5E;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .baby-tracker-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .baby-tracker-actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
+            
+            .visual-progress-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .pregnancy-timeline {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tracker-cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .baby-size {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+
+    
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -140,20 +581,104 @@
                 </div>
             </div>
             
-            <div class="pregnancy-info" id="pregnancy-info" data-aos="fade-up">
-                <h2 id="week-title">Mako na 12: Jariri girman plum ne</h2>
-                <p class="due-date-info" id="due-date-info">Ranar Haihuwa: 5 Janairu, 2025 (kwanaki 84 da suka rage)</p>
-                
-                <div class="progress-container">
-                    <h3>Ci gaban Ciki</h3>
-                    <div class="trimester-progress">
-                        <div class="trimester trimester-1 active-trimester">1st</div>
-                        <div class="trimester trimester-2">2nd</div>
-                        <div class="trimester trimester-3">3rd</div>
+            <div class="baby-tracker-container" id="pregnancy-info" style="display: none;">
+            <div class="baby-tracker-header">
+                <h2>Tafiyar Cikin Ciki</h2>
+            </div>
+
+            <div class="tracker-cards-container">
+                <!-- Due Date Card -->
+                <div class="tracker-card due-date-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <p class="trimester-info" id="trimester-info">Yanzu ana cikin zango (Trimester) ta farko - makonni 1-12</p>
+                    <div class="card-content">
+                        <h3>Kiyasin Ranar Haihuwa</h3>
+                        <div class="due-date" id="due-date-display">Janairu 5, 2025</div>
+                        <div class="countdown" id="days-remaining">84 kwanaki sun rage</div>
+                    </div>
+                </div>
+
+                <!-- Progress Card -->
+                <div class="tracker-card progress-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ci Gabanku</h3>
+                        <div class="week-display" id="current-week">Mako 24, Rana 3</div>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill" style="width: 60%;"></div>
+                            </div>
+                            <div class="progress-percent" id="progress-percent">60% cikakke</div>
+                        </div>
+                        <div class="trimester-info" id="trimester-info">Zango na 2 (Makonni 14-27)</div>
+                    </div>
+                </div>
+
+                <!-- Baby Development Card -->
+                <div class="tracker-card baby-dev-card">
+                    <div class="card-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ci Gaban Jariri</h3>
+                        <div class="baby-size" id="baby-size">
+                            <div class="size-comparison">Girman mango</div>
+                            <div class="size-image">
+                                <img src="https://via.placeholder.com/100x100?text=Mango" alt="Kwatancen girman jariri" id="baby-size-image">
+                            </div>
+                        </div>
+                        <div class="baby-milestones" id="baby-milestones">
+                            <ul>
+                                <li>Idanu sun fara buɗewa</li>
+                                <li>Ana haɓaka ƙwanƙwasa dandano</li>
+                                <li>Ana yin motsin numfashi</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Health Tips Card -->
+                <div class="tracker-card health-tips-card">
+                    <div class="card-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Shawarwari na Wannan Mako</h3>
+                        <div class="health-tip" id="health-tip">
+                            <p>Ƙara yawan abinci mai ƙarfe kamar ganye da naman rago don tallafawa girma da hana anemia.</p>
+                        </div>
+                        <div class="reminder" id="reminder">
+                            <i class="fas fa-bell"></i> Kar a manta da ziyarar kula da ciki a wannan mako!
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Visual Progress -->
+            <div class="visual-progress-container">
+                <div class="circular-progress">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring-circle" stroke="#A2D7D8" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="progress-ring-circle progress-ring-fill" stroke="#FF9AA2" stroke-width="8" stroke-dasharray="326.56" stroke-dashoffset="130.624" fill="transparent" r="52" cx="60" cy="60"/>
+                    </svg>
+                    <div class="progress-text" id="circular-progress-text">60%</div>
+                </div>
+                <div class="pregnancy-timeline">
+                    <div class="timeline-marker" style="left: 60%;">
+                        <div class="marker-dot"></div>
+                        <div class="marker-label">Mako 24</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            
         </div>
     </section>
     
@@ -678,177 +1203,414 @@
 
     <!-- JavaScript -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            offset: 100,
-            once: true
-        });
+      <!-- JavaScript -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        offset: 100,
+    });
 
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', function () {
+        const navItems = document.querySelectorAll('.bottom-nav .nav-item');
+        const currentPage = window.location.pathname.split('/').pop();
 
-        // Mobile Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const closeMenu = document.getElementById('close-menu');
-        const mobileMenuContainer = document.getElementById('mobile-menu-container');
-        const overlay = document.getElementById('overlay');
-        
-        hamburger.addEventListener('click', function() {
-            mobileMenuContainer.classList.add('open');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        navItems.forEach(link => {
+            const linkPage = link.getAttribute('href');
+            if (linkPage === currentPage) {
+                link.classList.add('active');
+            }
         });
-        
-        closeMenu.addEventListener('click', function() {
+    });
+
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const closeMenu = document.getElementById('close-menu');
+    const mobileMenuContainer = document.getElementById('mobile-menu-container');
+    const overlay = document.getElementById('overlay');
+    
+    hamburger.addEventListener('click', function() {
+        mobileMenuContainer.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    closeMenu.addEventListener('click', function() {
+        mobileMenuContainer.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    overlay.addEventListener('click', function() {
+        mobileMenuContainer.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', function() {
             mobileMenuContainer.classList.remove('open');
             overlay.classList.remove('active');
             document.body.style.overflow = '';
         });
+    });
+    
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Toggle calculation method
+    document.getElementById('calculation-method').addEventListener('change', function() {
+        if (this.value === 'lmp') {
+            document.getElementById('lmp-input').style.display = 'block';
+            document.getElementById('ed-input').style.display = 'none';
+        } else {
+            document.getElementById('lmp-input').style.display = 'none';
+            document.getElementById('ed-input').style.display = 'block';
+        }
+    });
+    
+    // Baby Development Data (for all 40 weeks)
+    const babyDevelopmentData = {
+        4: { 
+            size: "Irin Poppy", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Poppy", 
+            milestones: [
+                "Bututun jijiya ya fara samuwa",
+                "Zuciya ta fara bugawa"
+            ],
+            healthTips: [
+                "Fara shan folic acid don hana lahani ga jijiyoyin jiki",
+                "Tsaya shan barasa da sigari"
+            ],
+            reminder: "Yi gwajin ciki idan ba ku yi ba"
+        },
+        8: { 
+            size: "Rasberi", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Raspberry", 
+            milestones: [
+                "Yatsun hannu da ƙafafu sun fara samuwa",
+                "Idanu da kunnuwa suna ci gaba"
+            ],
+            healthTips: [
+                "Ci abinci kaɗan kaɗan sau da yawa don magance tashin zuciya",
+                "A guji abinci mai yawan gishiri"
+            ],
+            reminder: "Yi gwajin ciki na farko"
+        },
+        12: { 
+            size: "Plum", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Plum", 
+            milestones: [
+                "Dukkan manyan gabobin jiki sun fara samuwa",
+                "Yatsun hannu da ƙafafu sun rabu sosai"
+            ],
+            healthTips: [
+                "Ƙara yawan abinci mai gina jiki kamar omega-3 fatty acids",
+                "Fara yin motsa jiki na yau da kullun"
+            ],
+            reminder: "Yi gwajin ciki na biyu"
+        },
+        16: { 
+            size: "Avocado", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Avocado", 
+            milestones: [
+                "Gashin kai yana fara samuwa",
+                "Za a iya fara jin motsin jariri"
+            ],
+            healthTips: [
+                "Fara yin motsa jiki na ƙashin ƙugu (Kegels)",
+                "Ci abinci mai yawan fiber don hana maƙarƙashiya"
+            ],
+            reminder: "Yi gwajin ciki na uku"
+        },
+        20: { 
+            size: "Ayaba", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Banana", 
+            milestones: [
+                "Vernix caseosa (kariya) yana samuwa",
+                "Za a iya gano jinsin jariri"
+            ],
+            healthTips: [
+                "Kwana a gefenku don inganta jigilar jini",
+                "Ci abinci mai yawan ƙarfe don hana anemia"
+            ],
+            reminder: "Yi gwajin ciki na hudu"
+        },
+        24: { 
+            size: "Masara", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Corn", 
+            milestones: [
+                "Idanu suna fara buɗewa",
+                "Ana haɓaka ƙwanƙwasa dandano",
+                "Ana yin motsin numfashi"
+            ],
+            healthTips: [
+                "Ƙara yawan abinci mai ƙarfe kamar ganye da naman rago",
+                "Kwana a gefen hagu"
+            ],
+            reminder: "Yi gwajin ciki na biyar"
+        },
+        28: { 
+            size: "Gauta", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Eggplant", 
+            milestones: [
+                "Idanu suna iya buɗewa da rufewa",
+                "Jariri yana iya mafarki yayin barci"
+            ],
+            healthTips: [
+                "Yi allurar Tdap don kare jariri",
+                "Lura da motsin jariri kowace rana"
+            ],
+            reminder: "Yi gwajin ciki na shida"
+        },
+        32: { 
+            size: "Jicama", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Jicama", 
+            milestones: [
+                "Yana atisayen motsin numfashi",
+                "Fata tana zama ƙasa da ƙuƙumi"
+            ],
+            healthTips: [
+                "Ci abinci mai yawan calcium don ƙarfafa ƙasusuwa",
+                "Yi shawarwari game da shirin haihuwa"
+            ],
+            reminder: "Yi gwajin ciki na bakwai"
+        },
+        36: { 
+            size: "Lettuce", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Lettuce", 
+            milestones: [
+                "Jariri na iya zaune a matsayin kai ƙasa",
+                "Huhu sun kusan cika"
+            ],
+            healthTips: [
+                "Shirya jakar asibiti",
+                "Yi shawarwari game da alamun haihuwa"
+            ],
+            reminder: "Yi gwajin ciki na kowace mako"
+        },
+        40: { 
+            size: "Kabewa", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Pumpkin", 
+            milestones: [
+                "Ci gaban cikakken lokaci ya cika",
+                "A shirye don rayuwa a wajen mahaifa"
+            ],
+            healthTips: [
+                "San alamun haihuwa kamar ƙwanƙwasa na yau da kullun",
+                "A shirye don zuwa asibiti"
+            ],
+            reminder: "Yi gwajin ciki na kowace mako"
+        }
+    };
+
+    // Calculate comprehensive pregnancy progress
+    function calculatePregnancyProgress(dueDate, currentDate = new Date()) {
+        const totalDays = 280; // 40 weeks * 7 days
+        const conceptionDate = new Date(dueDate);
+        conceptionDate.setDate(conceptionDate.getDate() - totalDays);
         
-        overlay.addEventListener('click', function() {
-            mobileMenuContainer.classList.remove('open');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
+        const daysPassed = Math.floor((currentDate - conceptionDate) / (1000 * 60 * 60 * 24));
+        const daysRemaining = Math.max(0, Math.floor((dueDate - currentDate) / (1000 * 60 * 60 * 24)));
+        
+        const weeks = Math.min(40, Math.floor(daysPassed / 7));
+        const days = daysPassed % 7;
+        const percentComplete = Math.min(100, Math.round((daysPassed / totalDays) * 100));
+        
+        let trimester;
+        if (weeks < 14) {
+            trimester = '1st';
+        } else if (weeks < 28) {
+            trimester = '2nd';
+        } else {
+            trimester = '3rd';
+        }
+        
+        return {
+            weeks,
+            days,
+            percentComplete,
+            daysRemaining,
+            trimester,
+            conceptionDate,
+            currentDate
+        };
+    }
+
+    // Format date as "Month Day, Year"
+    function formatDate(date) {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return date.toLocaleDateString('ha-NG', options);
+    }
+
+    // Update all pregnancy info displays with new design
+    function updatePregnancyInfo(dueDate) {
+        const progress = calculatePregnancyProgress(dueDate);
+        const weekData = babyDevelopmentData[progress.weeks] || {
+            size: getFruitSize(progress.weeks),
+            milestones: ["Babu bayanan ci gaba don wannan mako"],
+            healthTips: ["Ci gaba da kula da ciki na yau da kullun"],
+            reminder: "Tuntuɓi mai kula da lafiyar ku"
+        };
+
+        // Update Due Date Card
+        document.getElementById('due-date-display').textContent = 
+            formatDate(dueDate);
+        document.getElementById('days-remaining').textContent = 
+            ` kwanaki ${progress.daysRemaining} sun rage`;
+
+        // Update Progress Card
+        document.getElementById('current-week').textContent = 
+            `Mako ${progress.weeks}, Rana ${progress.days}`;
+        document.getElementById('progress-fill').style.width = 
+            `${progress.percentComplete}%`;
+        document.getElementById('progress-percent').textContent = 
+            `${progress.percentComplete}% cikakke`;
+        document.getElementById('trimester-info').textContent = 
+            `Zango na ${progress.trimester} (${progress.trimester === '1st' ? 'Makonni 1-13' : 
+              progress.trimester === '2nd' ? 'Makonni 14-27' : 'Makonni 28-40'})`;
+
+        // Update Circular Progress
+        const circumference = 2 * Math.PI * 52;
+        const offset = circumference - (progress.percentComplete / 100) * circumference;
+        document.querySelector('.progress-ring-fill').style.strokeDashoffset = offset;
+        document.getElementById('circular-progress-text').textContent = 
+            `${progress.percentComplete}%`;
+
+        // Update Baby Development Card
+        document.querySelector('.size-comparison').textContent = 
+            `Girman ${weekData.size}`;
+        if (weekData.sizeImage) {
+            document.getElementById('baby-size-image').src = weekData.sizeImage;
+            document.getElementById('baby-size-image').alt = 
+                `Kwatancen girman jariri: ${weekData.size}`;
+        }
+        
+        const milestonesList = document.getElementById('baby-milestones').querySelector('ul');
+        milestonesList.innerHTML = '';
+        weekData.milestones.forEach(milestone => {
+            const li = document.createElement('li');
+            li.textContent = milestone;
+            milestonesList.appendChild(li);
         });
+
+        // Update Health Tips Card
+        const healthTipElement = document.getElementById('health-tip');
+        if (weekData.healthTips) {
+            healthTipElement.querySelector('p').textContent = Array.isArray(weekData.healthTips) ? 
+                weekData.healthTips.join(' ') : weekData.healthTips;
+            healthTipElement.style.display = 'block';
+        } else {
+            healthTipElement.style.display = 'none';
+        }
         
-        // Close menu when clicking on a link
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenuContainer.classList.remove('open');
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
+        const reminderElement = document.getElementById('reminder');
+        if (weekData.reminder) {
+            reminderElement.innerHTML = `<i class="fas fa-bell"></i> ${weekData.reminder}`;
+            reminderElement.style.display = 'flex';
+        } else {
+            reminderElement.style.display = 'none';
+        }
+
+        // Update Timeline Marker
+        document.querySelector('.timeline-marker').style.left = 
+            `${progress.percentComplete}%`;
+        document.querySelector('.marker-label').textContent = 
+            `Mako ${progress.weeks}`;
+    }
+
+    // Calculate due date based on last menstrual period (LMP)
+    function calculateDueDate(lmpDate) {
+        const dueDate = new Date(lmpDate);
+        dueDate.setDate(dueDate.getDate() + 280); // 40 weeks * 7 days
+        return dueDate;
+    }
+
+    // Calculate LMP based on due date
+    function calculateLMP(dueDate) {
+        const lmpDate = new Date(dueDate);
+        lmpDate.setDate(lmpDate.getDate() - 280); // 40 weeks * 7 days
+        return lmpDate;
+    }
+
+    // Get fruit/vegetable size comparison for week
+    function getFruitSize(week) {
+        const sizes = {
+            4: 'irin Poppy', 5: 'irin Sesame', 6: 'irin Lentil', 7: 'irin Blueberry', 
+            8: 'irin Rasberi', 9: 'irin Cherry', 10: 'irin Strawberry', 11: 'irin Lime', 
+            12: 'irin Plum', 13: 'irin Peach', 14: 'irin Lemon', 15: 'irin Apple', 
+            16: 'irin Avocado', 17: 'irin Pear', 18: 'irin Bell Pepper', 19: 'irin Tomato', 
+            20: 'irin Ayaba', 21: 'irin Karas', 22: 'irin Spaghetti Squash', 23: 'irin Grapefruit',
+            24: 'irin Masara', 25: 'irin Rutabaga', 26: 'irin Scallion', 27: 'irin Cauliflower',
+            28: 'irin Gauta', 29: 'irin Butternut Squash', 30: 'irin Cabbage', 31: 'irin Coconut',
+            32: 'irin Jicama', 33: 'irin Pineapple', 34: 'irin Melon', 35: 'irin Honeydew',
+            36: 'irin Lettuce', 37: 'irin Swiss Chard', 38: 'irin Leek', 39: 'irin Mini Watermelon',
+            40: 'irin Kabewa'
+        };
+        return sizes[week] || 'irin Watermelon';
+    }
+
+    // Calculate due date - main function
+    document.getElementById('calculate-btn').addEventListener('click', function() {
+        const method = document.getElementById('calculation-method').value;
+        let dueDate;
         
-        // Toggle calculation method
-        document.getElementById('calculation-method').addEventListener('change', function() {
-            if (this.value === 'lmp') {
-                document.getElementById('lmp-input').style.display = 'block';
-                document.getElementById('ed-input').style.display = 'none';
-            } else {
-                document.getElementById('lmp-input').style.display = 'none';
-                document.getElementById('ed-input').style.display = 'block';
+        if (method === 'lmp') {
+            const lmp = new Date(document.getElementById('last-period').value);
+            if (isNaN(lmp.getTime())) {
+                alert('Don Allah shigar da ranar haila ta ƙarshe daidai');
+                return;
             }
-        });
-        
-        // Calculate due date
-        document.getElementById('calculate-btn').addEventListener('click', function() {
-            const method = document.getElementById('calculation-method').value;
-            let dueDate, lastPeriod;
             
-            if (method === 'lmp') {
-                const lmp = new Date(document.getElementById('last-period').value);
-                if (isNaN(lmp.getTime())) {
-                    alert('Da fatan za a shigar da ranar haila ta ƙarshe da ta dace');
-                    return;
-                }
-                
-                // Calculate due date (LMP + 280 days)
-                dueDate = new Date(lmp);
-                dueDate.setDate(dueDate.getDate() + 280);
-                lastPeriod = lmp;
-            } else {
-                dueDate = new Date(document.getElementById('due-date').value);
-                if (isNaN(dueDate.getTime())) {
-                    alert('Da fatan za a shigar da ranar haihuwa da ta dace');
-                    return;
-                }
-                
-                // Calculate LMP (due date - 280 days)
-                lastPeriod = new Date(dueDate);
-                lastPeriod.setDate(lastPeriod.getDate() - 280);
-            }
-            
-            // Calculate current week of pregnancy
-            const today = new Date();
-            const daysPassed = Math.floor((today - lastPeriod) / (1000 * 60 * 60 * 24));
-            const weeks = Math.floor(daysPassed / 7);
-            const daysLeft = Math.floor((dueDate - today) / (1000 * 60 * 60 * 24));
-            
-            // Update UI
-            document.getElementById('week-title').textContent = `Mako na ${weeks}: Jariri girman ${getFruitSize(weeks)} ne`;
-            document.getElementById('due-date-info').textContent = `Ranar Haihuwa: ${formatDate(dueDate)} (kwanaki ${daysLeft} da suka rage)`;
-            
-            // Update trimester info
-            let trimester, trimesterText;
-            if (weeks < 13) {
-                trimester = '1';
-                trimesterText = 'farko';
-            } else if (weeks < 27) {
-                trimester = '2';
-                trimesterText = 'na biyu';
-            } else {
-                trimester = '3';
-                trimesterText = 'na uku';
-            }
-            
-            document.getElementById('trimester-info').textContent = `Yanzu ana cikin zango (Trimester) ta ${trimesterText} - ${trimester === '1' ? 'makonni 1-12' : trimester === '2' ? 'makonni 13-26' : 'makonni 27-40'}`;
-            
-            // Highlight active trimester
-            document.querySelectorAll('.trimester').forEach(el => el.classList.remove('active-trimester'));
-            document.querySelector(`.trimester-${trimester}`).classList.add('active-trimester');
-            
-            // Show results
-            document.getElementById('pregnancy-info').style.display = 'block';
-            
-            // Scroll to pregnancy info
-            document.getElementById('pregnancy-info').scrollIntoView({ behavior: 'smooth' });
-        });
-        
-        // Reset calculator
-        document.getElementById('reset-btn').addEventListener('click', function() {
-            document.getElementById('last-period').value = '';
-            document.getElementById('due-date').value = '';
-            document.getElementById('pregnancy-info').style.display = 'none';
-        });
-        
-        // Toggle week cards
-        function toggleWeek(header) {
-            const card = header.parentElement;
-            const content = header.nextElementSibling;
-            const icon = header.querySelector('i');
-            
-            // Toggle the active class
-            card.classList.toggle('active');
-            
-            // Toggle the icon
-            if (card.classList.contains('active')) {
-                icon.classList.remove('fa-chevron-down');
-                icon.classList.add('fa-chevron-up');
-            } else {
-                icon.classList.remove('fa-chevron-up');
-                icon.classList.add('fa-chevron-down');
+            dueDate = calculateDueDate(lmp);
+        } else {
+            dueDate = new Date(document.getElementById('due-date').value);
+            if (isNaN(dueDate.getTime())) {
+                alert('Don Allah shigar da ranar haihuwa daidai');
+                return;
             }
         }
         
-        // Format date as "Month Day, Year"
-        function formatDate(date) {
-            const options = { 
-                month: 'long', 
-                day: 'numeric', 
-                year: 'numeric' 
-            };
-            return new Intl.DateTimeFormat('ha', options).format(date);
-        }
+        // Update UI with new design
+        updatePregnancyInfo(dueDate);
         
-        // Get fruit/vegetable size comparison for week
-        function getFruitSize(week) {
-            const sizes = {
-                4: 'poppy seed', 5: 'sesame seed', 6: 'lentil', 7: 'blueberry', 
-                8: 'raspberry', 9: 'cherry', 10: 'strawberry', 11: 'lime', 
-                12: 'plum', 13: 'peach', 14: 'lemon', 15: 'apple', 
-                16: 'avocado', 17: 'pear', 18: 'bell pepper', 19: 'tomato', 
-                20: 'banana', 21: 'carrot', 22: 'spaghetti squash', 23: 'grapefruit',
-                24: 'corn', 25: 'rutabaga', 26: 'scallion', 27: 'cauliflower',
-                28: 'eggplant', 29: 'butternut squash', 30: 'cabbage', 31: 'coconut',
-                32: 'jicama', 33: 'pineapple', 34: 'melon', 35: 'honeydew',
-                36: 'romaine lettuce', 37: 'swiss chard', 38: 'leek', 39: 'mini watermelon',
-                40: 'pumpkin'
-            };
-            return sizes[week] || 'watermelon';
+        // Show results
+        document.getElementById('pregnancy-info').style.display = 'block';
+        
+        // Add animation to progress fill
+        const progressFill = document.getElementById('progress-fill');
+        setTimeout(() => {
+            progressFill.style.transition = 'width 1s ease';
+        }, 100);
+        
+        // Scroll to pregnancy info
+        document.getElementById('pregnancy-info').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // Reset calculator
+    document.getElementById('reset-btn').addEventListener('click', function() {
+        document.getElementById('last-period').value = '';
+        document.getElementById('due-date').value = '';
+        document.getElementById('pregnancy-info').style.display = 'none';
+    });
+
+    // Toggle week cards
+    function toggleWeek(header) {
+        const content = header.nextElementSibling;
+        const icon = header.querySelector('i');
+        
+        content.classList.toggle('active');
+        
+        if (content.classList.contains('active')) {
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+        } else {
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
         }
-    </script>
+    }
+</script>
 </body>
 </html>
