@@ -71,6 +71,8 @@
     font-weight: 600;
 }
 
+
+
 .baby-tracker-actions {
     display: flex;
     gap: 10px;
@@ -146,11 +148,17 @@
 }
 
 .card-content h3 {
-    color: var(--dark);
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    font-weight: 600;
+ card-content h3 {
+  color: var(--dark);
+  font-size: 1rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
+
+due-date, .week-display, .size-comparison {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Fluid typography */
+  font-weight: 600;
 
 .due-date {
     font-size: 1.3rem;
