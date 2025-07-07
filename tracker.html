@@ -19,8 +19,6 @@
 
 
 <style>
-
-<style>
 /* Modern Spinner Animation */
 .fa-spinner {
   animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
@@ -42,7 +40,22 @@
   --success: #4CC9F0;  /* Sky blue */
 }
 
-/* Modern Card Design */
+/* Container with proper spacing */
+.baby-tracker-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* Modern Card Grid with responsive columns */
+.tracker-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0 10px; /* Added side padding */
+}
+
+/* Modern Card Design with max-width */
 .tracker-card {
   background-color: white;
   border-radius: 16px;
@@ -54,19 +67,14 @@
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.03);
-}
-
-.tracker-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 
-    0 7px 14px rgba(50, 50, 93, 0.1),
-    0 3px 6px rgba(0, 0, 0, 0.08);
+  max-width: 100%; /* Prevent over-stretching */
+  margin: 0 auto; /* Center cards when in single column */
 }
 
 /* Card Header with Modern Typography */
 .card-content h3 {
   color: var(--dark);
-  font-size: 1rem; /* Reduced from 1.2rem */
+  font-size: 1rem;
   margin-bottom: 12px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -74,9 +82,9 @@
 
 /* Modern Card Icons */
 .card-icon {
-  width: 42px; /* Slightly smaller */
+  width: 42px;
   height: 42px;
-  border-radius: 12px; /* Less rounded */
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,18 +94,16 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Card-specific icon colors */
 .due-date-card .card-icon {
   background: linear-gradient(135deg, var(--secondary), #FF8E9E);
 }
-
 .progress-card .card-icon {
   background: linear-gradient(135deg, var(--primary), #8580FF);
 }
-
 .baby-dev-card .card-icon {
   background: linear-gradient(135deg, var(--accent), #00D3A9);
 }
-
 .health-tips-card .card-icon {
   background: linear-gradient(135deg, #FF9A8B, #FF7E7E);
 }
@@ -106,15 +112,13 @@
 .progress-container {
   margin-bottom: 12px;
 }
-
 .progress-bar {
   width: 100%;
-  height: 8px; /* Thinner */
+  height: 8px;
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 4px;
   overflow: hidden;
 }
-
 .progress-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--secondary), var(--primary));
@@ -122,37 +126,49 @@
   transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Modern Typography */
+/* Responsive Typography */
 .due-date, .week-display, .size-comparison {
-  font-size: 1.1rem; /* Reduced from 1.3rem */
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Fluid typography */
   font-weight: 600;
 }
 
-.due-date {
-  color: var(--secondary);
-  background: rgba(255, 101, 132, 0.1);
-  padding: 4px 8px;
-  border-radius: 6px;
-  display: inline-block;
+/* Modern Media Queries */
+@media (max-width: 768px) {
+  .tracker-cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    padding: 0 5px;
+  }
+  
+  .tracker-card {
+    padding: 16px;
+    max-width: 95%; /* Slightly less than full width */
+  }
+  
+  .card-content h3 {
+    font-size: 0.95rem;
+  }
 }
 
-.week-display {
-  color: var(--primary);
-}
-
-.size-comparison {
-  color: var(--dark);
+@media (max-width: 480px) {
+  .tracker-cards-container {
+    grid-template-columns: 1fr;
+    max-width: 400px; /* Prevent over-stretching on small phones */
+    margin: 0 auto;
+  }
+  
+  .tracker-card {
+    max-width: 100%;
+  }
 }
 
 /* Modern List Items */
 .baby-milestones li {
-  padding: 6px 0;
-  padding-left: 22px;
-  font-size: 0.85rem; /* Reduced from 0.95rem */
+  padding: 6px 0 6px 22px;
+  font-size: 0.85rem;
   color: var(--text);
   position: relative;
 }
-
 .baby-milestones li:before {
   content: "";
   position: absolute;
@@ -176,60 +192,31 @@
   border-left: 3px solid var(--accent);
 }
 
-/* Modern Responsive Grid */
-.tracker-cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-}
-
 /* Ultra-Modern Circular Progress */
 .circular-progress {
   position: relative;
-  width: 100px; /* Smaller */
+  width: 100px;
   height: 100px;
+  margin: 0 auto; /* Center on mobile */
 }
-
 .progress-ring-circle {
   stroke: url(#progressGradient);
   stroke-linecap: round;
   transition: stroke-dashoffset 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 .progress-text {
-  font-size: 1.2rem; /* Smaller */
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--primary);
 }
 
-/* Add this SVG gradient definition in your HTML */
-/*
-<svg width="0" height="0">
-  <defs>
-    <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#FF6584" />
-      <stop offset="100%" stop-color="#6C63FF" />
-    </linearGradient>
-  </defs>
-</svg>
-*/
-
-/* Modern Media Queries */
-@media (max-width: 768px) {
-  .tracker-cards-container {
-    grid-template-columns: 1fr;
-  }
-  
-  .tracker-card {
-    padding: 16px;
-  }
-  
-  .card-content h3 {
-    font-size: 0.95rem;
-  }
-}
-
 /* Micro-interactions */
+.tracker-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 7px 14px rgba(50, 50, 93, 0.1),
+    0 3px 6px rgba(0, 0, 0, 0.08);
+}
 .tracker-card:hover .card-icon {
   transform: rotate(5deg) scale(1.05);
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
@@ -246,8 +233,7 @@
   display: inline-block;
   letter-spacing: 0.5px;
 }
-</style>    
-
+</style>
     
 </head>
 <body>
