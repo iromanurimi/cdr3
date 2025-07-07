@@ -20,6 +20,71 @@
 
 <style>
 /* Add these styles to your existing CSS */
+.tracker-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  align-items: stretch; /* Make all cards stretch to same height */
+}
+
+.tracker-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Take full available height */
+  min-height: 320px; /* Set minimum height for all cards */
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Specific content containers that should grow */
+.progress-container,
+.baby-milestones,
+.health-tip {
+  flex-grow: 1;
+}
+
+/* Fixed height elements */
+.card-icon,
+.due-date,
+.week-display,
+.trimester-info,
+.reminder {
+  flex-shrink: 0; /* Prevent these from shrinking */
+}
+
+/* Equal spacing for all cards */
+.card-content > *:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+/* Specific adjustments for each card type */
+.due-date-card .card-content {
+  justify-content: space-between;
+}
+
+.progress-card .progress-container {
+  flex-grow: 1;
+}
+
+.baby-dev-card .baby-size {
+  margin-bottom: 15px;
+}
+
+.health-tips-card .health-tip {
+  margin-bottom: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tracker-card {
+    min-height: 280px; /* Slightly smaller on mobile */
+  }
+}
+/* Add these styles to your existing CSS */
 
 .tracker-cards-container {
   grid-auto-rows: 1fr; /* Makes all rows equal height */
