@@ -19,6 +19,54 @@
 
 
 <style>
+/* Add these styles to your existing CSS */
+
+.tracker-cards-container {
+  grid-auto-rows: 1fr; /* Makes all rows equal height */
+}
+
+.tracker-card {
+  height: 100%; /* Take full height of grid cell */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content {
+  flex: 1; /* Makes content area grow to fill space */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-main-content {
+  flex: 1; /* Ensures content pushes footer down */
+}
+
+/* Specific content sections that should grow */
+.progress-container, 
+.baby-milestones, 
+.health-tip-container {
+  flex: 1;
+}
+
+/* Equal height for all card icons */
+.card-icon {
+  flex-shrink: 0; /* Prevents icon from shrinking */
+}
+
+/* Consistent spacing for all card types */
+.tracker-card > *:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+/* Media query adjustments */
+@media (max-width: 768px) {
+  .tracker-card {
+    min-height: 200px; /* Minimum height on mobile */
+  }
+}
+
+
+    
 /* Modern Spinner Animation */
 .fa-spinner {
   animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
