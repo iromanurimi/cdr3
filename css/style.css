@@ -1,4 +1,8 @@
-
+.section-title {
+    display: block !important; /* Force block-level */
+    text-align: center !important; /* Force center */
+    margin: 0 auto 1rem !important; /* Horizontal centering */
+}
     /* ********************************** Modern Color Palette ****************************************** */
 :root {
     --primary: #8E6C88;       /* Sophisticated mauve */
