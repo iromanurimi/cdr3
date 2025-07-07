@@ -443,8 +443,12 @@ img {
     padding: 4rem 1.5rem;
     text-align: center;
     /* New background with image + overlay */
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-                url('images/pregnancy-hero.jpg') center/cover no-repeat;
+    background: 
+        /* Dark overlay (30% opacity) */
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        /* Image URL */
+        url('https://images.unsplash.com/photo-1516589091380-5d6019716b4c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    /* Keep other properties (flex, padding, etc.) */   
     position: relative;
     overflow: hidden;
     color: white; /* Change text color to white for better contrast */
