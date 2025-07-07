@@ -382,6 +382,75 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
   }
 }
+
+
+
+
+    /* Health Tips Card - Modernized */
+.health-tips-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.health-tips-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.health-tips-card .card-icon {
+  background: linear-gradient(135deg, var(--success), #4AE0F0);
+}
+
+.health-tip {
+  background: linear-gradient(to right, var(--light), var(--white));
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+  border-left: 4px solid var(--success);
+  box-shadow: 0 2px 8px rgba(76, 201, 240, 0.1);
+}
+
+.health-tip-title {
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.health-tip-title i {
+  color: var(--success);
+}
+
+.reminder {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+  padding: 12px 16px;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(255, 101, 132, 0.2);
+}
+
+.reminder i {
+  font-size: 1.1rem;
+}
+
+/* Color-coded tips */
+.tip-nutrition { border-left-color: var(--accent); }
+.tip-exercise { border-left-color: var(--primary); }
+.tip-mental { border-left-color: var(--secondary); }
     </style>
 </head>
 <body>
