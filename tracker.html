@@ -19,6 +19,8 @@
 
 <style>
 
+<style>
+
 .fa-spinner {
   animation: spin 1.5s linear infinite;
 }
@@ -421,6 +423,15 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .tracker-cards-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .tracker-card {
+                padding: 15px;
+            }
+            
             .baby-tracker-header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -444,9 +455,10 @@
         }
 
         @media (max-width: 480px) {
-            .tracker-cards-container {
+            /* For very small screens, you can keep single column if needed */
+            /* .tracker-cards-container {
                 grid-template-columns: 1fr;
-            }
+            } */
             
             .baby-size {
                 flex-direction: column;
